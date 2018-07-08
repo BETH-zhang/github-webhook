@@ -22,3 +22,9 @@ git checkout master
 echo "changing permissions..."
 chown -R $WEB_USER:$WEB_USERGROUP $WEB_PATH
 echo "Finished."
+
+# docker部署
+docker build -t $1 .
+docker stop $1
+docker rm $1
+docker run -d --name=$1 -p $2:$2 $1:latest
