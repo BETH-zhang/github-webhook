@@ -1,8 +1,8 @@
 var http = require('http')
-var createHandler = require('github-webhook-handler')
+var createHandler = require('./oschina-webhook-handler/lib/github-webhook-handler.js')
 var handler = createHandler([
-  { path: '/', secret: 'root' },
-  { path: '/admin', secret: 'bethroot' }
+  {path: '/', secret: 'root'},
+  {path: '/admin', secret: 'bethroot'},
 ])
 
 function run_cmd(cmd, args, callback) {
